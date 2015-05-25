@@ -45,9 +45,20 @@ public:
 		minutes = min;
 	}
 
+	Time operator++(int)
+	{
+		Time temp = *this;
+		helpincrement();
+		return temp;
+	}
+
 private:
 	int hrs;
 	int min;
+	void helpincrement()
+	{
+		
+	}
 };
 int main(int argc, char *argv[]) {
 
