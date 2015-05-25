@@ -21,9 +21,9 @@ using namespace std;
 // ***** DO NOT MODIFY CODE BELOW THIS LINE *****
 class Time
 {
-	friend ostream &operator>>(ostream &, const Time);
+	friend ostream &operator<<(ostream &, const Time);
 public:
-	Time Time() = 0;
+	Time(int = 0, int = 0);
 	void set(int hrs, int min)
 	{
 		sethrs(hrs);
@@ -57,9 +57,21 @@ private:
 	int min;
 	void helpincrement()
 	{
-		
+		if (min < 60)
+			min++;
+		else
+			hrs++;
+		    min = 0;
 	}
 };
+
+ostream & operator<<(ostream output, const Time OBJ)
+{
+	int h, m;
+	OBJ.get(h, m);
+
+	output << h << ":'" << m;
+}
 int main(int argc, char *argv[]) {
 
 	Time myTime(8, 40);									// instantiate time class 
