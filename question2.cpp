@@ -39,6 +39,11 @@ public:
 	{
 		min = mins;
 	}
+	int get(int &hours, int &minutes)
+	{
+		hours = hrs;
+		minutes = min;
+	}
 
 private:
 	int hrs;
