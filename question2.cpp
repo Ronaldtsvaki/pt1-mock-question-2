@@ -19,6 +19,31 @@ using namespace std;
 
 
 // ***** DO NOT MODIFY CODE BELOW THIS LINE *****
+class Time
+{
+	friend ostream &operator>>(ostream &, const Time);
+public:
+	Time Time() = 0;
+	void set(int hrs, int min)
+	{
+		sethrs(hrs);
+		setmin(min);
+	}
+
+	void sethrs(int hrss)
+	{
+		hrs = hrss;
+	}
+
+	void setmin(int mins)
+	{
+		min = mins;
+	}
+
+private:
+	int hrs;
+	int min;
+};
 int main(int argc, char *argv[]) {
 
 	Time myTime(8, 40);									// instantiate time class 
