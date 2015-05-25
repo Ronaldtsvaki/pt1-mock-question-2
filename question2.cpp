@@ -21,13 +21,18 @@ using namespace std;
 // ***** DO NOT MODIFY CODE BELOW THIS LINE *****
 class Time
 {
-	friend ostream &operator<<(ostream &, const Time);
+	
 public:
 	Time(int = 0, int = 0);
 	void set(int hrs, int min)
 	{
 		sethrs(hrs);
 		setmin(min);
+	}
+	friend ostream &operator<<(ostream &output, const Time & t)
+	{
+		output << t.hrs << ":" << t.min;
+		return output;
 	}
 
 	void sethrs(int hrss)
@@ -39,7 +44,7 @@ public:
 	{
 		min = mins;
 	}
-	int get(int &hours, int &minutes)
+	void get(int &hours, int &minutes)
 	{
 		hours = hrs;
 		minutes = min;
@@ -65,18 +70,12 @@ private:
 	}
 };
 
-ostream & operator<<(ostream output, const Time OBJ)
-{
-	int h, m;
-	OBJ.get(h, m);
 
-	output << h << ":'" << m;
-}
 int main(int argc, char *argv[]) {
 
 	Time myTime(8, 40);									// instantiate time class 
 
-	cout << "CM3 starts at " << myTime << endl;			// demonstrate overloaded stream insertion operator
+	cout <<myTime<< endl;			// demonstrate overloaded stream insertion operator
 
 	myTime.set(10, 30);									// change the time
 
